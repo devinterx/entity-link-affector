@@ -1,0 +1,26 @@
+{
+  "id": "entity-link-affector",
+  "title": "Entity Link Affector",
+  "description": "Entity links affector add to content links in chat support: holded SHIFT + LMB - create entities for selected tokens, holded ALT + LMB - to targetable tokens.",
+  "version": "1.0.0",  
+  "minimumCoreVersion": "10",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10.291"
+  },
+  "authors": [
+    {
+      "name": "DeVinterX",
+      "discord": "DeVinterX#2226"
+    }
+  ],
+  "esmodules": [
+    "entity-link-affector.js"
+  ],
+  "styles": [
+    "entity-link-affector.css"
+  ],
+  "url": "https://github.com/devinterx/entity-link-affector",
+  "manifest": "https://github.com/devinterx/entity-link-affector/releases/latest/download/module.json",
+  "download": "https://github.com/devinterx/entity-link-affector/releases/latest/download/module.zip"
+}
