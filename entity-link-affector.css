@@ -1,27 +1,32 @@
 a.content-link-affector {
-  background: #DDD;
-  padding: 1px 4px;
-  border: 1px solid var(--color-border-dark-tertiary);
-  border-radius: 2px;
-  white-space: nowrap;
-  word-break: break-all;
+    background: #DDD;
+    padding: 1px 4px;
+    border: 1px solid var(--color-border-dark-tertiary);
+    border-radius: 2px;
+    white-space: nowrap;
+    word-break: break-all;
 }
+
 a.content-link-affector i {
-  color: var(--color-text-dark-inactive);
-  margin-right: 0.25em;
+    color: var(--color-text-dark-inactive);
+    margin-right: 0.25em;
 }
+
 a.content-link-affector.playing i:before {
-  content: "\f0c8";
+    content: "\f0c8";
 }
+
 a.content-link-affector.disabled {
-  cursor: default;
-  color: var(--color-text-dark-inactive);
-  border-color: var(--color-border-light-primary);
+    cursor: default;
+    color: var(--color-text-dark-inactive);
+    border-color: var(--color-border-light-primary);
 }
+
 a.content-link-affector.disabled:hover {
-  text-shadow: unset;
+    text-shadow: unset;
 }
+
 a.content-link-affector.broken {
-  background: rgba(255, 0, 0, 0.05);
-  border: 1px dashed red;
+    background: rgba(255, 0, 0, 0.05);
+    border: 1px dashed red;
 }

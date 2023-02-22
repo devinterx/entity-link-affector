@@ -1,9 +1,8 @@
 {
   "id": "entity-link-affector",
   "title": "Entity Link Affector",
-  "description": "Entity links affector add to content links in chat support: holded SHIFT + LMB - create entities for selected tokens, holded ALT + LMB - to targetable tokens.",
-  "version": "1.0.0",  
-  "minimumCoreVersion": "10",
+  "description": "Entity links affector add to content links in chat hotkeys support: holded SHIFT + LMB - create entities for selected tokens, holded ALT + LMB - to targetable tokens.",
+  "version": "1.1.0",
   "compatibility": {
     "minimum": "10",
     "verified": "10.291"
@@ -11,9 +10,22 @@
   "authors": [
     {
       "name": "DeVinterX",
-      "discord": "DeVinterX#2226"
+      "discord": "DeVinterX#2226",
+      "flags": {}
     }
   ],
+  "relationships": {
+    "requires": [
+        {
+            "id": "lib-wrapper",
+            "type": "module",
+            "compatibility": {
+                "minimum": "1.0.0.0",
+                "verified": "1.12.6.0"
+            }
+        }
+    ]
+  },
   "esmodules": [
     "entity-link-affector.js"
   ],
