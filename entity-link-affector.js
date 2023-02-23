@@ -1,11 +1,19 @@
 // CONFIG.debug.hooks = false;
 
+const _acceptedTypes = {
+    "default": ["weapon", "equipment", "consumable", "tool", "loot", "background", "class", "subclass", "spell", "feat", "backpack"],
+    "pf2e":    ["action", "affliction", "ancestry", "armor", "backpack", "book", "equipment", "class", "condition", "consumable", "background",
+                "deity", "effect", "feat", "heritage", "kit", "lore", "melee", "spell", "spellcastingEntry", "treasure", "weapon"]
+};
+
 const _htmlClosest = (child, selectors) => !(child instanceof Element) ? null : child.closest(selectors);
-const _onClickContentLink = async (event) => {
+const _onClickContentLink = async (wrapped, event) => {
+  if (!(event.shiftKey || event.altKey)) return wrapped(event);
+  
   event.preventDefault();
   const doc = await fromUuid(event.currentTarget.dataset.uuid);
-
-  if (!(event.shiftKey || event.altKey)) return doc?._onClickDocumentLink(event);
+  const acceptedTypes = _acceptedTypes[(CONFIG.PF2E ? 'pf2e' : 'default')];
+  if (!doc?.type || acceptedTypes.indexOf(doc?.type || 'undefined') === -1) return wrapped(event);
 
   const target = event.currentTarget;
   let itemSource = doc.toObject();
@@ -54,22 +62,22 @@ const _onClickContentLink = async (event) => {
     const controlled = canvas?.tokens?.controlled;
     if (controlled?.length > 0) {
       controlled.map(async (token) => await token.actor.createEmbeddedDocuments('Item', [itemSource]));
-    } else ui.notifications.error(game.i18n.localize('PF2E.ErrorMessage.NoTokenSelected'))
+    } else ui.notifications.error(game.i18n.localize('ELA.ErrorMessage.NoTokenSelected'))
     window._token = controlled[0];
   } else if (event.altKey) {
     const targets = game?.user?.targets;
     if (targets?.size > 0) {
       targets.map(async (token) => await token.actor.createEmbeddedDocuments('Item', [itemSource]));
-    } else ui.notifications.error(game.i18n.localize('PF2E.ErrorMessage.NoTokenSelected'))
+    } else ui.notifications.error(game.i18n.localize('ELA.ErrorMessage.NoTargetSelected'))
   }
 };
 
 Hooks.on('init', () => {
   console.info('Entity Link Affector enabled' + (CONFIG.PF2E ? ' (PF2E support)' : ''));
   if (typeof libWrapper === 'function') {
-    libWrapper.register('entity-link-affector', 'TextEditor._onClickContentLink', function (wrapped, ...args) {
-      TextEditor._onClickContentLink = _onClickContentLink;
-    }, 'OVERRIDE');
+    libWrapper.register('entity-link-affector', 'TextEditor._onClickContentLink', async function (wrapped, ...args) { 
+      return _onClickContentLink(wrapped, ...args);
+    }, 'MIXED');
   }
 });
 

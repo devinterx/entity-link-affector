@@ -1,0 +1,4 @@
+{
+  "ELA.ErrorMessage.NoTokenSelected": "Select at least one token.",
+  "ELA.ErrorMessage.NoTargetSelected": "Select at least one token as target."
+}

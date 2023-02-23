@@ -1,8 +1,8 @@
 {
   "id": "entity-link-affector",
   "title": "Entity Link Affector",
-  "description": "Entity links affector add to content links in chat hotkeys support: holded SHIFT + LMB - create entities for selected tokens, holded ALT + LMB - to targetable tokens.",
-  "version": "1.1.0",
+  "description": "<p>Entity Link Affector allows you to quickly create copies of entities in selected actor tokens by clicking on entity links in the chat.</p><p>Shift+Click to copy entities into selected tokens. Alt+Click to copy entities into targeted tokens.</p>",
+  "version": "1.1.1",
   "compatibility": {
     "minimum": "10",
     "verified": "10.291"
@@ -16,21 +16,31 @@
   ],
   "relationships": {
     "requires": [
-        {
-            "id": "lib-wrapper",
-            "type": "module",
-            "compatibility": {
-                "minimum": "1.0.0.0",
-                "verified": "1.12.6.0"
-            }
+      {
+        "id": "lib-wrapper",
+        "type": "module",
+        "compatibility": {
+          "minimum": "1.0.0.0",
+          "verified": "1.12.6.0"
         }
+      }
     ]
   },
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },{
+      "lang": "ru",
+      "name": "Russian",
+      "path": "lang/ru.json",
+      "flags": {}
+    }
+  ],
   "esmodules": [
     "entity-link-affector.js"
-  ],
-  "styles": [
-    "entity-link-affector.css"
   ],
   "url": "https://github.com/devinterx/entity-link-affector",
   "manifest": "https://github.com/devinterx/entity-link-affector/releases/latest/download/module.json",

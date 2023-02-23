@@ -1,0 +1,4 @@
+{
+  "ELA.ErrorMessage.NoTokenSelected": "Выберите хотя бы один токен.",
+  "ELA.ErrorMessage.NoTargetSelected": "Выберите хотя бы один токен как цель."
+}
